@@ -1,1 +1,8 @@
-_searchbar.html.erb
+<%= simple_form_for(@article) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :title %>
+  <%= f.input :body %>
+
+  <%= f.button :submit %>
+<% end %>
