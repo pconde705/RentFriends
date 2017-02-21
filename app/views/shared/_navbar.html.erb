@@ -11,7 +11,7 @@
     <a href="" class="navbar-wagon-item navbar-wagon-link">Be a Friend</a>
 
   <!-- Text link -->
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Sign Up</a>
+    <%= link_to "Sign Up", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
