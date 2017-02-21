@@ -35,7 +35,7 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:price, :description)
+    params.require(:offer).permit(:price, :description, :photo)
   end
 
   def set_offer
