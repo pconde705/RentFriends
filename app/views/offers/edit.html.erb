@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-4 col-md-offset-4">
+
+      <%= simple_form_for(@offer) do |f| %>
+        <%= f.error_notification %>
+
+        <%= f.input :price %>
+        <%= f.input :description %>
+
+        <%= f.button :submit %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

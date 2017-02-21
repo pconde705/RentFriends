@@ -1,0 +1,16 @@
+<br>
+
+<% @offers.each do |offer| %>
+  <ul>
+  <%= link_to "Edit", edit_offer_path(offer) %>
+  <%= link_to "Delete offer", offer_path(offer), method: :delete %>
+    <li>
+      <%="Price: #{offer.price}" %>
+    </li>
+    <li>
+      <%="Description: #{offer.description}" %>
+    </li>
+    <%= link_to "Show Offer", offer_path(offer) %>
+  <br>
+  </ul>
+<% end %>
