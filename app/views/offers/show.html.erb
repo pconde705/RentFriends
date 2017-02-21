@@ -1,6 +1,7 @@
 <% if @offer.photo? %>
   <%= cl_image_tag @offer.photo.path, width: 1500, height: 700, crop: :fill %>
 <% end %>
+<h2><%= @offer.city %></h2>
 <h2>DKK <%= @offer.price %> kr. per hour </h2>
 <h2><%= @offer.description %></h2>
 
@@ -8,3 +9,4 @@
 <p><%= link_to "Homepage", root_path %></p>
 
 
+<button type="button" class="btn btn-info"><%= link_to "Create A Match", new_offer_match_path(@offer) %></button>

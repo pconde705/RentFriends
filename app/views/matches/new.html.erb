@@ -1,0 +1,14 @@
+<div class="container">
+<h1>Choose Your Dates For Your Match</h1>
+
+<%= simple_form_for [@offer, @match] do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :start_date %>
+
+  <%= f.input :end_date %>
+
+  <%= f.button :submit %>
+
+<% end %>
+</div>
