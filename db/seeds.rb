@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+url = "http://img.clubic.com/07791435-photo-playstation.jpg"
+product = Product.new(name: 'Playstation')
+product.save!
+product.photo_url = url # Upload happens here

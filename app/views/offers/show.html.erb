@@ -1,0 +1,8 @@
+<% if @offer.photo? %>
+  <%= cl_image_tag @offer.photo.path, width: 200, height: 300, crop: :fill %>
+<% end %>
+<h2><%= @offer.price %></h2>
+<h2><%= @offer.description %></h2>
+
+<p><%= link_to "All Offers", offers_path %></p>
+<p><%= link_to "Homepage", root_path %></p>

@@ -1,0 +1,9 @@
+<%= simple_form_for(@offer) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :price %>
+  <%= f.input :description %>
+  <%= f.input :photo, as: :attachinary %>
+
+  <%= f.button :submit %>
+<% end %>
