@@ -10,6 +10,9 @@
   <%= link_to "Delete offer", offer_path(offer), method: :delete %>
   <ul>
     <li>
+      <%="City: #{offer.city}" %>
+    </li>
+    <li>
       <%="Price: #{offer.price}" %>
     </li>
     <li>
