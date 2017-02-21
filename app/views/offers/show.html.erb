@@ -1,8 +1,8 @@
 <% if @offer.photo? %>
-  <%= cl_image_tag @offer.photo.path, width: 200, height: 300, crop: :fill %>
+  <%= cl_image_tag @offer.photo.path, width: 1500, height: 700, crop: :fill %>
 <% end %>
 <h2><%= @offer.city %></h2>
-<h2><%= @offer.price %></h2>
+<h2>DKK <%= @offer.price %> kr. per hour </h2>
 <h2><%= @offer.description %></h2>
 
 <p><%= link_to "All Offers", offers_path %></p>
