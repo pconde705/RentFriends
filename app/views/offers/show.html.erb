@@ -1,12 +1,25 @@
-<% if @offer.photo? %>
-  <%= cl_image_tag @offer.photo.path, width: 1500, height: 700, crop: :fill %>
-<% end %>
-<h2><%= @offer.city %></h2>
-<h2>DKK <%= @offer.price %> kr. per hour </h2>
-<h2><%= @offer.description %></h2>
+<div class="container-fluid">
+  <div class="row">
+    <% if @offer.photo? %>
+      <%= cl_image_tag @offer.photo.path, :class => "img_show", crop: :fill %>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      <h3><%= @offer.city %></h3>
+      <h2>About the Friend </h2>
+      <h1><%= @offer.title %></h1>
+      <p><%= @offer.description %></p>
 
-<p><%= link_to "All Offers", offers_path %></p>
-<p><%= link_to "Homepage", root_path %></p>
+      <p><%= link_to "All Offers", offers_path %></p>
+      <p><%= link_to "Homepage", root_path %></p>
 
 
-<button type="button" class="btn btn-info"><%= link_to "Create A Match", new_offer_match_path(@offer) %></button>
+      <button type="button" class="btn btn-info"><%= link_to "Create A Match", new_offer_match_path(@offer) %></button>
+    </div>
+    <div class="col-xs-6 col-md-4">
+    <h2>DKK <%= @offer.price %> kr. per day </h2>
+
+    </div>
+  </div>
+</div>
