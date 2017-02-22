@@ -8,7 +8,7 @@
 </div>
 <%= render "shared/searchbar" %>
 
- <div class="container">
+ <div class="home-container">
     <div class="row">
       <% @offers.each do |offer| %>
         <div class="col-xs-12 col-sm-4">
@@ -22,10 +22,10 @@
            <%="City: #{offer.city}" %>
           </p>
           <p>
-            <%="#{offer.price}" %> kr. DKK
+            DKK <%="#{offer.price}" %> kr. per day
           </p>
           <p>
-            <%="#{offer.description}" %>
+            <%="#{offer.title}" %>
           </p>
         <br>
         </div>
