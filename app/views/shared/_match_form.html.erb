@@ -1,10 +1,13 @@
-<%= simple_form_for [@offer, @match] do |f| %>
-  <%= f.error_notification %>
+<div class="match_form">
+  <%= simple_form_for [@offer, @match] do |f| %>
+    <%= f.error_notification %>
 
-  <%= f.input :start_date %>
+    <%= f.input :start_date %>
 
-  <%= f.input :end_date %>
-
-  <%= f.button :submit %>
-
-<% end %>
+    <%= f.input :end_date %>
+    <br>
+    <div class="">
+      <%= f.button :submit, "Request a Friend", class: "btn_match" %>
+    </div>
+  <% end %>
+</div>

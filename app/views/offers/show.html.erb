@@ -8,18 +8,23 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8">
-      <h3><%= @offer.city %></h3>
+      <h3><%= @offer.first_name.capitalize %> | <%= @offer.city %></h3>
+      <hr>
       <h2>About the Friend </h2>
-      <h1><%= @offer.title %></h1>
+      <p><%= @offer.gender.capitalize %> | <%= @offer.age %> years old</p>
+      <hr>
+      <h3><%= @offer.title %></h3>
       <p><%= @offer.description %></p>
-
-      <button type="button" class="btn btn-info"><%= link_to "See all RentFriends", offers_path(@offer) %></button>
+      <br>
+      <br>
     </div>
-    <div class="col-xs-6 col-md-4">
-      <h2>DKK <%= @offer.price %> kr. per day </h2>
+    <div class="right col-xs-6 col-md-4">
+      <h2><%= @offer.price %>kr DKK day </h2>
       <%= render 'shared/match_form' %>
     </div>
   </div>
 </div>
+
+
 
 
