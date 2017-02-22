@@ -1,9 +1,11 @@
-<div class="container-fluid">
-  <div class="row">
-    <% if @offer.photo? %>
-      <%= cl_image_tag @offer.photo.path, :class => "img_show", crop: :fill %>
-    <% end %>
+
+<% if @offer.photo? %>
+  <div class="banner" style="background-image: url('<%= cl_image_path @offer.photo.path, crop: :fill %>');">
   </div>
+<% end %>
+
+
+<div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8">
       <h3><%= @offer.city %></h3>
@@ -11,15 +13,13 @@
       <h1><%= @offer.title %></h1>
       <p><%= @offer.description %></p>
 
-      <p><%= link_to "All Offers", offers_path %></p>
-      <p><%= link_to "Homepage", root_path %></p>
-
-
-      <button type="button" class="btn btn-info"><%= link_to "Create A Match", new_offer_match_path(@offer) %></button>
+      <button type="button" class="btn btn-info"><%= link_to "See all RentFriends", offers_path(@offer) %></button>
     </div>
     <div class="col-xs-6 col-md-4">
-    <h2>DKK <%= @offer.price %> kr. per day </h2>
-
+      <h2>DKK <%= @offer.price %> kr. per day </h2>
+      <%= render 'shared/match_form' %>
     </div>
   </div>
 </div>
+
+

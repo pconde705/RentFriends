@@ -11,6 +11,7 @@ class OffersController < ApplicationController
   end
 
   def show
+    @match = Match.new
   end
 
   def new
