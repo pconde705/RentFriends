@@ -1,6 +1,7 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [ :search, :index, :show ]
+  before_filter :current_user, only: [:edit, :destroy]
 
   def search
     q = "%#{params[:query]}%" # % only works with LIKE and ILIKE
