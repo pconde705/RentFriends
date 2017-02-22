@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'offers/search' => 'offers#search', as: 'search_offers'
 
   mount Attachinary::Engine => "/attachinary"
   devise_for :users
