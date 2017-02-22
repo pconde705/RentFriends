@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+      <% @offers.each do |offer| %>
+        <div class="col-xs-12 col-sm-4">
+        <%= link_to offer_path(offer) do %>
+          <%= cl_image_tag offer_photo_path(offer), width: 300, height: 200, crop: :fill %>
+        <% end %>
+        <br>
+        <%= link_to "Edit", edit_offer_path(offer) %>
+        <%= link_to "Delete offer", offer_path(offer), method: :delete %>
+          <p>
+           <%="City: #{offer.city}" %>
+          </p>
+          <p>
+            <%="#{offer.price}" %> kr. DKK
+          </p>
+          <p>
+            <%="#{offer.description}" %>
+          </p>
+        <br>
+        </div>
+      <% end %>
+    </div>
+  </div>

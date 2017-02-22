@@ -1,6 +1,11 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
 
+  def search
+    @q = "%#{params[:query]}%"
+    @offers = Offer.where("city ILIKE ?", @q)
+  end
+
   def index
     @offers = Offer.all
   end
@@ -37,7 +42,7 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:city, :price, :title, :description, :photo)
+    params.require(:offer).permit(:city, :price, :title, :description, :photo, :query)
   end
 
   def set_offer
