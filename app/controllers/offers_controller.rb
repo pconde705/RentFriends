@@ -3,10 +3,11 @@ class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :search, :index, :show ]
 
   def search
-
-    q = "%#{params[:query]}%"
-    k = "#{params[:num]}"
-    @offers = Offer.where("city ILIKE ? and price <= ?", q, k)
+    q = "%#{params[:query]}%" # % only works with LIKE and ILIKE
+    k = params[:num].to_i
+    a = params[:age].to_i
+    s = "#{params[:gender]}"
+    @offers = Offer.where("city ILIKE ? and price < ? and age > ? and gender = ?", q, k, a, s)
   end
 
   def index
