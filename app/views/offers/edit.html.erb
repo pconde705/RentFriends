@@ -4,13 +4,11 @@
 
       <%= simple_form_for(@offer) do |f| %>
         <%= f.error_notification %>
-        <%= f.input :first_name %>
-        <%= f.input :age %>
-        <%= f.input :gender %>
         <%= f.input :city %>
         <%= f.input :price %>
         <%= f.input :title %>
-        <%= f.input :description %>
+        <%= f.input :description, as: :text, :input_html => {:rows => 10} %>
+        <%= f.input :rules, as: :text, :input_html => {:rows => 10} %>
         <%= f.input :photo, as: :attachinary %>
 
         <%= f.button :submit %>

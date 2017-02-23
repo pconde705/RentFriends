@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222131534) do
+ActiveRecord::Schema.define(version: 20170221154004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,21 +44,15 @@ ActiveRecord::Schema.define(version: 20170222131534) do
 
   create_table "offers", force: :cascade do |t|
     t.integer  "price"
+    t.string   "title"
     t.string   "description"
+    t.string   "rules"
+    t.integer  "owner_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "photo"
     t.string   "city"
-    t.string   "title"
-    t.string   "first_name"
-    t.string   "rules"
-    t.integer  "age"
-    t.string   "gender"
-  end
-
-  create_table "pages", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_offers_on_owner_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,4 +77,5 @@ ActiveRecord::Schema.define(version: 20170222131534) do
 
   add_foreign_key "matches", "offers"
   add_foreign_key "matches", "users"
+  add_foreign_key "offers", "users", column: "owner_id"
 end

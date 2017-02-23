@@ -4,11 +4,11 @@ class OffersController < ApplicationController
   before_filter :current_user, only: [:edit, :destroy]
 
   def search
-    q = "%#{params[:query]}%" # % only works with LIKE and ILIKE
-    k = params[:num].to_i
-    a = params[:age].to_i
-    s = "#{params[:gender]}"
-    @offers = Offer.where("city ILIKE ? and price < ? and age > ? and gender = ?", q, k, a, s)
+    c = "%#{params[:query]}%" # % only works with LIKE and ILIKE
+    pr = params[:num].to_i
+    # a = params[:age].to_i
+    # g = "#{params[:gender]}" "and age > ? and gender = ?"
+    @offers = Offer.where("city ILIKE ? and price < ?", c, pr)
   end
 
   def index
@@ -17,6 +17,8 @@ class OffersController < ApplicationController
 
   def show
     @match = Match.new
+    all_renters = @offer.users
+    @current_user_renting = all_renters.any? { |r| r.id == current_user.id }
   end
 
   def new
@@ -25,6 +27,7 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.new(offer_params)
+    @offer.user = current_user
     if @offer.save
       redirect_to offer_path(@offer)
     else

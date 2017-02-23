@@ -1,6 +1,9 @@
 <br>
 <br>
 <div class="headline_home">
+<% if user_signed_in? %>
+<%= link_to "See My Dashboard", dashboard_path %>
+<% end %>
   <h1>
     Unforgettable experience start here.
   </h1>
@@ -21,17 +24,28 @@
             </div>
           <% end %>
           <br>
-          <%= link_to "Edit", edit_offer_path(offer) %>
-          <%= link_to "Delete", offer_path(offer), method: :delete %>
-            <p class="offer-details">
-             <strong><%="#{offer.city}" %></strong>
-            </p>
-            <p class="offer-details">
-              <%="#{offer.price}" %> DKK day
-            </p>
-            <p class="offer-details">
-              <%="#{offer.title}" %>
-            </p>
+          <% if user_signed_in? %>
+        <%= link_to "Edit", edit_offer_path(offer) %>
+        <%= link_to "Delete", offer_path(offer), method: :delete %>
+          <p class="offer-details">
+           <strong><%="#{offer.city}" %></strong>
+          </p>
+          <p class="offer-details">
+           <%="#{offer.price}" %> DKK day
+          </p>
+          <p class="offer-details">
+            <%="#{offer.title}" %>
+          </p>
+          <% else %>
+          <p class="offer-details">
+           <strong><%="#{offer.city}" %></strong>
+          </p>
+          <p class="offer-details">
+           <%="#{offer.price}" %> DKK day
+          </p>
+          <p class="offer-details">
+            <%="#{offer.title}" %>
+          <% end %>
           <br>
           </div>
         <% end %>

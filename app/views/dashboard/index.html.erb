@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-4 col-md-offset-4">
+      <h2>My Bookings</h2>
+  <hr>
+      <% @user_matches.each do |match| %>
+
+        <!-- Works for users, not offers -->
+        <h4><%= current_user.first_name.capitalize %>'s current requests:</h4>
+
+        <p><%= match.offer.title %> | <%= match.offer.user.first_name %></p>
+
+        <p>Start Date: <%= match.start_date %></p>
+        <p>End Date: <%= match.end_date %></p>
+
+        <hr>
+
+
+      <% end %>
+      <%= @offer_matches %>
+    </div>
+  </div>
+</div>
+
