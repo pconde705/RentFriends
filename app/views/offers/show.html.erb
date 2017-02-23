@@ -13,7 +13,7 @@
       <h2>About the Friend</h2>
       <p><%= @offer.owner.gender.capitalize %> | <%= @offer.owner.age %> years old</p>
       <hr>
-      <h3><%= @offer.title.capitalize %></h3>
+      <h3 class="blacky"><%= @offer.title.capitalize %></h3>
       <p><%= @offer.description %></p>
       <br>
       <br>
@@ -31,6 +31,24 @@
   </div>
 </div>
 
+<div id="map" style="width: 100%; height: 600px;">
 
 
-
+<% content_for(:after_js) do %>
+  <script type="text/javascript">
+    $(document).on('ready', function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  </script>
+<% end %>
+</div>
