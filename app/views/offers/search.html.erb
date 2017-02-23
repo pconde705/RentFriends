@@ -10,15 +10,16 @@
         <br>
         <%= link_to "Edit", edit_offer_path(offer) %>
         <%= link_to "Delete", offer_path(offer), method: :delete %>
-          <p>
-           <%="City: #{offer.city}" %>
+          <p class="offer-details">
+           <strong><%="#{offer.city}" %></strong>
           </p>
-          <p>
-           <%="#{offer.price}" %>kr DKK day
+          <p class="offer-details">
+           <%="#{offer.price}" %> DKK day
           </p>
-          <p>
+          <p class="offer-details">
             <%="#{offer.title}" %>
           </p>
+
         <br>
         </div>
       <% end %>

@@ -20,9 +20,25 @@
 }
 
 .home-container {
-  margin: 50px 10% 10px 10%;
+  margin-top: 90px;
 }
 
 body {
   background-color: #FAFCF9;
+}
+
+.crop {
+ height: 200px;
+ width: 100%;
+ overflow: hidden;
+}
+
+.box-images {
+  text-align: center;
+  width: 100%;
+  min-height: 100%;
+}
+
+.offer-details {
+  margin: 0 0 2px;
 }
