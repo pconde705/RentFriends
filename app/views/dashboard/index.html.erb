@@ -8,7 +8,7 @@
         <!-- Works for users, not offers -->
         <h4><%= current_user.first_name.capitalize %>'s current requests:</h4>
 
-        <p><%= match.offer.title %> | <%= match.offer.user.first_name %></p>
+        <p><%= match.offer.title %> | <%= match.offer.owner.first_name %></p>
 
         <p>Start Date: <%= match.start_date %></p>
         <p>End Date: <%= match.end_date %></p>
