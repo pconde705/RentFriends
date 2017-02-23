@@ -17,8 +17,12 @@ class OffersController < ApplicationController
 
   def show
     @match = Match.new
-    all_renters = @offer.users
-    @current_user_renting = all_renters.any? { |r| r.id == current_user.id }
+
+    if current_user
+      all_renters = @offer.users
+      @current_user_renting = all_renters.any? { |r| r.id == current_user.id }
+    end
+
   end
 
   def new

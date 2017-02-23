@@ -10,28 +10,19 @@
           </div>
         <% end %>
         <br>
-        <% if user_signed_in? %>
-        <%= link_to "Edit", edit_offer_path(offer) %>
-        <%= link_to "Delete", offer_path(offer), method: :delete %>
-          <p class="offer-details">
-           <strong><%="#{offer.city}" %></strong>
-          </p>
-          <p class="offer-details">
-            <%="#{offer.price}" %> DKK day
-          </p>
-          <p class="offer-details">
-            <%="#{offer.title}" %>
-          </p>
-          <% else %>
-          <p class="offer-details">
-           <strong><%="#{offer.city}" %></strong>
-          </p>
-          <p class="offer-details">
-            <%="#{offer.price}" %> DKK day
-          </p>
-          <p class="offer-details">
-            <%="#{offer.title}" %>
+          <% if current_user == offer.owner %>
+            <%= link_to "Edit", edit_offer_path(offer) %>
+            <%= link_to "Delete", offer_path(offer), method: :delete %>
           <% end %>
+          <p class="offer-details">
+           <strong><%="#{offer.city}" %></strong>
+          </p>
+          <p class="offer-details">
+            <%="#{offer.price}" %> DKK day
+          </p>
+          <p class="offer-details">
+            <%="#{offer.title}" %>
+          </p>
         <br>
         </div>
       <% end %>
