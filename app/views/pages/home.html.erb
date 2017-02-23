@@ -1,3 +1,5 @@
+<br>
+<br>
 <div class="headline_home">
   <h1>
     Unforgettable experience start here.
@@ -8,27 +10,31 @@
 </div>
 <%= render "shared/searchbar" %>
 
- <div class="home-container">
+ <div class="container home-container">
     <div class="row">
-      <% @offers.each do |offer| %>
-        <div class="col-xs-12 col-sm-4">
-        <%= link_to offer_path(offer) do %>
-          <%= cl_image_tag offer_photo_path(offer), width: 300, height: 200, crop: :fill %>
+      <div>
+        <% @offers.each do |offer| %>
+          <div class="col-xs-12 col-sm-4">
+          <%= link_to offer_path(offer) do %>
+            <div class="crop">
+              <%= cl_image_tag offer_photo_path(offer), class: "box-images"%>
+            </div>
+          <% end %>
+          <br>
+          <%= link_to "Edit", edit_offer_path(offer) %>
+          <%= link_to "Delete", offer_path(offer), method: :delete %>
+            <p class="offer-details">
+             <strong><%="#{offer.city}" %></strong>
+            </p>
+            <p class="offer-details">
+              <%="#{offer.price}" %> DKK day
+            </p>
+            <p class="offer-details">
+              <%="#{offer.title}" %>
+            </p>
+          <br>
+          </div>
         <% end %>
-        <br>
-        <%= link_to "Edit", edit_offer_path(offer) %>
-        <%= link_to "Delete", offer_path(offer), method: :delete %>
-          <p>
-           <%="City: #{offer.city}" %>
-          </p>
-          <p>
-            DKK <%="#{offer.price}" %> kr. per day
-          </p>
-          <p>
-            <%="#{offer.title}" %>
-          </p>
-        <br>
-        </div>
-      <% end %>
+      </div>
     </div>
   </div>
