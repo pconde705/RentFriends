@@ -1,8 +1,16 @@
 class MatchesController < ApplicationController
 
+
+  def new
+    @offer = Offer.find(params[:offer_id])
+    @match = Match.new
+  end
+
   def create
     @match = Match.new(match_params)
     @match.offer = Offer.find(params[:offer_id])
+    @match.user = current_user
+    @match.status = "pending"
     @match.save
     redirect_to offer_path(@match.offer)
   end

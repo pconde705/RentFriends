@@ -8,10 +8,10 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8">
-      <h3><%= @offer.first_name.capitalize %> | <%= @offer.city %></h3>
+      <h3><%= @offer.owner.first_name.capitalize %> | <%= @offer.city %></h3>
       <hr>
       <h2>About the Friend</h2>
-      <p><%= @offer.gender.capitalize %> | <%= @offer.age %> years old</p>
+      <p><%= @offer.owner.gender.capitalize %> | <%= @offer.owner.age %> years old</p>
       <hr>
       <h3><%= @offer.title.capitalize %></h3>
       <p><%= @offer.description %></p>
@@ -21,8 +21,11 @@
     <div class="col-xs-6 col-md-4">
       <div class="align-right">
         <h2><%= @offer.price %> DKK day </h2>
-        <hr>
-        <%= render 'shared/match_form' %>
+        <% if !@current_user_renting %>
+          <%= render 'shared/match_form' %>
+        <% else %>
+          <p> You requested to book <%= @offer.title %> from <%= @offer.matches.find_by(user: current_user.id).start_date %> to <%= @offer.matches.find_by(user: current_user.id).end_date %> </p>
+        <% end %>
       </div>
     </div>
   </div>

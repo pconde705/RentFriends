@@ -8,6 +8,7 @@
           <%= cl_image_tag offer_photo_path(offer), width: 300, height: 200, crop: :fill %>
         <% end %>
         <br>
+        <% if user_signed_in? %>
         <%= link_to "Edit", edit_offer_path(offer) %>
         <%= link_to "Delete", offer_path(offer), method: :delete %>
           <p class="offer-details">
@@ -16,6 +17,19 @@
           <p class="offer-details">
            <%="#{offer.price}" %> DKK day
           </p>
+          <p class="offer-details">
+            <%="#{offer.title}" %>
+          </p>
+          <% else %>
+          <p class="offer-details">
+           <strong><%="#{offer.city}" %></strong>
+          </p>
+          <p class="offer-details">
+           <%="#{offer.price}" %> DKK day
+          </p>
+          <p class="offer-details">
+            <%="#{offer.title}" %>
+          <% end %>
         <br>
         </div>
       <% end %>
