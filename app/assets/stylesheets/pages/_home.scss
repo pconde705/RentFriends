@@ -3,6 +3,7 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 .headline_home {
+  font-family: 'Arima Madurai', cursive;
   text-align: center;
 }
 
@@ -20,11 +21,12 @@
 }
 
 .home-container {
-  margin-top: 90px;
+  margin-top: 110px;
+  margin-bottom: 15px;
 }
 
 body {
-  background-color: #FAFCF9;
+  background-color: #FDFCFB;
 }
 
 .crop {
@@ -42,3 +44,4 @@ body {
 .offer-details {
   margin: 0 0 2px;
 }
+

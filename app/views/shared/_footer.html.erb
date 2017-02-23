@@ -1,3 +1,4 @@
+<hr>
 <div class="footer">
   <div class="container">
     <div class="row">
@@ -11,10 +12,11 @@
           </ul>
         </div>
       </div>
-      <div class="col-xs-8 text-right">
-        <div class="logo_small">
-          <%= image_tag "friends.png" %> RentFriend
-        </div>
+      <div class="col-xs-8 text-right list-inline">
+        <%= link_to root_path, class: "logo_small" do %>
+          <%= image_tag "friends.png" %>
+        <% end %>
+          RentFriend
       </div>
     </div>
   </div>
