@@ -3,6 +3,8 @@ class Offer < ApplicationRecord
   has_many :users, through: :matches
   belongs_to :owner, class_name: 'User'
   has_attachment :photo
+  geocoded_by :city
+  after_validation :geocode, if: :city_changed?
 
   validates :city, presence: true, allow_blank: false
   validates :description, presence: true, allow_blank: false
