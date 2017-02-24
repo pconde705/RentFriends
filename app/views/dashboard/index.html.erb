@@ -16,8 +16,34 @@
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="home">
 
-          <p>(Edit )</p>
-          <p>( delete) </p>
+          <div class="container">
+            <div class="row">
+              <% @offers.each do |offer| %>
+              <% if current_user == offer.owner %>
+                <div class="col-xs-12 col-sm-4">
+                <%= link_to offer_path(offer) do %>
+                  <div class="crop">
+                    <%= cl_image_tag d_offer_photo_path(offer), class: "box-images" %>
+                  </div>
+                <% end %>
+                <br>
+                    <%= link_to "Edit", edit_offer_path(offer) %>
+                    <%= link_to "Delete", offer_path(offer), method: :delete %>
+                  <p class="offer-details">
+                   <strong><%="#{offer.city}" %></strong>
+                  </p>
+                  <p class="offer-details">
+                    <%="#{offer.price}" %> DKK day
+                  </p>
+                  <p class="offer-details">
+                    <%="#{offer.title}" %>
+                  </p>
+                <br>
+                </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
 
           </div>
 
