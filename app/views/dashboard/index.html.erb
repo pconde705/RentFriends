@@ -14,37 +14,41 @@
 
         <!-- Tab panes -->
         <div class="tab-content">
+
           <div role="tabpanel" class="tab-pane active" id="home">
+            <div class="container">
+              <div class="row">
+                <% @offers.each do |offer| %>
+                <% if current_user == offer.owner %>
 
-          <div class="container">
-            <div class="row">
-              <% @offers.each do |offer| %>
-              <% if current_user == offer.owner %>
-                <div class="col-xs-12 col-sm-4">
-                <%= link_to offer_path(offer) do %>
-                  <div class="crop">
-                    <%= cl_image_tag d_offer_photo_path(offer), class: "box-images" %>
-                  </div>
+                    <div class="col-xs-12 col-sm-4">
+                    <br>
+                      <p class="offer-details">
+                       <strong><%="#{offer.city}" %></strong>
+                      </p>
+                      <p class="offer-details">
+                        <%="#{offer.price}" %> DKK day
+                      </p>
+                      <p class="offer-details">
+                        <%="#{offer.title}" %>
+                      </p>
+                      <br>
+                      <br>
+                      <p><%= link_to "Edit profile", edit_offer_path(offer) %></p>
+                      <p><%= link_to "Delete your profile", offer_path(offer), method: :delete %></p>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                    <br>
+                      <%= link_to offer_path(offer) do %>
+                        <div class="crop crop_profile">
+                          <%= cl_image_tag d_offer_photo_path(offer), class: "box-images" %>
+                        </div>
+                      <% end %>
+                    </div>
+                  <% end %>
                 <% end %>
-                <br>
-                    <%= link_to "Edit", edit_offer_path(offer) %>
-                    <%= link_to "Delete", offer_path(offer), method: :delete %>
-                  <p class="offer-details">
-                   <strong><%="#{offer.city}" %></strong>
-                  </p>
-                  <p class="offer-details">
-                    <%="#{offer.price}" %> DKK day
-                  </p>
-                  <p class="offer-details">
-                    <%="#{offer.title}" %>
-                  </p>
-                <br>
-                </div>
-                <% end %>
-              <% end %>
+              </div>
             </div>
-          </div>
-
           </div>
 
           <div role="tabpanel" class="tab-pane" id="outgoing">
@@ -62,18 +66,18 @@
                   <p><strong>Congratulations! Your request was accepted</strong></p>
                 <% end %>
 
-                <p>Start Date: <%= match.start_date %></p>
-                <p>End Date: <%= match.end_date %></p>
+                <p><strong>Start Date:</strong> <%= match.start_date %></p>
+                <p><strong>End Date:</strong> <%= match.end_date %></p>
               </div>
               <div class="col-xs-8 col-sm-6">
                 <div class="crop_pic">
                   <%= cl_image_tag offer_photo_path(match.offer), class: "box-images" %>
                 </div>
               </div>
+              <hr>
             </div>
-            <hr>
-            <% end %>
 
+            <% end %>
           </div>
 
           <div role="tabpanel" class="tab-pane" id="incoming">
@@ -83,8 +87,9 @@
               <div class="row">
                 <div class="col-xs-8 col-sm-6">
                   <p><strong><%= m.user.first_name %></strong> requested to be RentFriends with you</p>
-                  <p>Start Date: <%= m.start_date %></p>
-                  <p>End Date: <%= m.end_date %></p>
+                  <p><strong>Start Date:</strong> <%= m.start_date %></p>
+                  <p><strong>End Date:</strong> <%= m.end_date %></p>
+                  <br>
                   <p>See <strong><%= m.user.first_name %>'s</strong> <button type="submit" class="btn btn-default btn-small">Profile</button></p>
                   <%= link_to match_accept_path(m) do %>
                   <p><button type="submit" class="btn btn-default btn-small">Accept</button>
@@ -94,8 +99,8 @@
                   <% end %>
                 </div>
                 <div class="col-xs-8 col-sm-6">
-                  <div class="crop_pic">
-                    pic of requesting user
+                  <div class="btn_accept_reject">
+                    <p><button type="submit" class="btn btn-default btn-small">Accept</button><button type="submit" class="btn btn-default btn-small">Reject</button></p>
                   </div>
                 </div>
                 <hr>
