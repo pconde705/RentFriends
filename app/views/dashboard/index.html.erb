@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8 col-md-offset-2">
-      <h2><%= current_user.first_name.capitalize %>'s Profile</h2>
+      <h3><%= current_user.first_name.capitalize %>'s Profile</h3>
       <br>
 
         <!-- Nav tabs -->
@@ -54,65 +54,78 @@
           <div role="tabpanel" class="tab-pane" id="outgoing">
             <br>
             <% @user_matches.each do |match| %>
-            <div class="row">
-              <div class="col-xs-8 col-sm-6">
-                <!-- Works for users, not offers -->
+              <div class="row">
+                <div class="col-xs-8 col-sm-6">
+                  <!-- Works for users, not offers -->
+                  <p>You requested to be RentFriends with <strong><%= match.offer.owner.first_name %></strong></p>
 
-                <p>You requested to be RentFriends with <strong><%= match.offer.owner.first_name %></strong></p>
-                <p><%= match.offer.title %></p>
-                <% if match.status == "pending" %>
-                  <p><strong>Waiting for confirmation</strong></p>
-                <% elsif match.status == "accepted" %>
-                  <p><strong>Congratulations! Your request was accepted</strong></p>
-                <% end %>
+                  <br>
+                  <div class="waiting">
+                  <% if match.status == "pending" %>
+                    <p><strong>Waiting for confirmation</strong></p>
+                  </div>
+                  <div class="congratulations">
+                  <% elsif match.status == "accepted" %>
+                    <p><strong>Congratulations! Your request was accepted</strong></p>
+                  <% end %>
+                  </div>
 
-                <p><strong>Start Date:</strong> <%= match.start_date %></p>
-                <p><strong>End Date:</strong> <%= match.end_date %></p>
-              </div>
-              <div class="col-xs-8 col-sm-6">
-                <div class="crop_pic">
-                  <%= cl_image_tag offer_photo_path(match.offer), class: "box-images" %>
+                  <p><strong>Start Date:</strong> <%= match.start_date %></p>
+                  <p><strong>End Date:</strong> <%= match.end_date %></p>
                 </div>
+                <div class="col-xs-8 col-sm-6">
+                  <div class="crop_pic">
+                    <%= cl_image_tag offer_photo_path(match.offer), class: "box-images" %>
+                  </div>
+                </div>
+                <hr>
               </div>
-              <hr>
-            </div>
 
             <% end %>
           </div>
 
           <div role="tabpanel" class="tab-pane" id="incoming">
             <br>
+            <div class="row">
             <% @offer_matches.each do |m| %>
-            <% if m.status == "pending" %>
-              <div class="row">
-                <div class="col-xs-8 col-sm-6">
-                  <p><strong><%= m.user.first_name %></strong> requested to be RentFriends with you</p>
-                  <p><strong>Start Date:</strong> <%= m.start_date %></p>
-                  <p><strong>End Date:</strong> <%= m.end_date %></p>
-                  <br>
-                  <p>See <strong><%= m.user.first_name %>'s</strong> <button type="submit" class="btn btn-default btn-small">Profile</button></p>
-                  <%= link_to match_accept_path(m) do %>
-                  <p><button type="submit" class="btn btn-default btn-small">Accept</button>
-                  <% end %>
-                  <%= link_to offer_match_path(m.offer, m), method: :delete do %>
-                  <button type="submit" class="btn btn-default btn-small">Reject</button></p>
-                  <% end %>
-                </div>
-                <div class="col-xs-8 col-sm-6">
-                  <div class="btn_accept_reject">
-                    <p><button type="submit" class="btn btn-default btn-small">Accept</button><button type="submit" class="btn btn-default btn-small">Reject</button></p>
+              <% if m.status == "pending" %>
+
+                  <div class="col-xs-8 col-sm-6">
+                    <p><strong><%= m.user.first_name %></strong> requested to be RentFriends with you</p>
+                    <p><strong>Start Date:</strong> <%= m.start_date %></p>
+                    <p><strong>End Date:</strong> <%= m.end_date %></p>
+                    <br>
                   </div>
-                </div>
-                <hr>
-              </div>
-            <% end %>
-            <% if m.status == "accepted" %>
-              <p>You are now friends with <strong><%= m.user.first_name %></strong></p>
-                  <p>Start Date: <%= m.start_date %></p>
-                  <p>End Date: <%= m.end_date %></p>
-            <% end %>
-            <hr>
-            <% end %>
+
+                  <div class="col-xs-8 col-sm-6">
+                    <div class="btn_accept_reject">
+                      <%= link_to match_accept_path(m) do %>
+                    <p><button type="submit" class="btn btn-default btn-small">Accept</button>
+                    <% end %>
+                    <%= link_to offer_match_path(m.offer, m), method: :delete do %>
+                    <button type="submit" class="btn btn-default btn-small">Reject</button></p>
+                    <% end %>
+                    </div>
+                  </div>
+              <% end %>
+
+                    <div class="col-xs-8 col-sm-6">
+                      <% if m.status == "accepted" %>
+                        <p>You are now friends with <strong><%= m.user.first_name %></strong></p>
+                        <p>Start Date: <%= m.start_date %></p>
+                        <p>End Date: <%= m.end_date %></p>
+                    </div>
+
+                    <div class="col-xs-8 col-sm-6">
+                      <div class="btn_accept_reject">
+                        <%= link_to offer_match_path(m.offer, m), method: :delete do %>
+                          <button type="submit" class="btn btn-default btn-small">Change your mind</button></p>
+                        <% end %>
+                      </div>
+                      <% end %>
+                   </div>
+                <% end %>
+            </div>
           </div>
         </div>
     </div>
