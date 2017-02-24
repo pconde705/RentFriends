@@ -1,26 +1,72 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-md-4 col-md-offset-4">
-      <h2><%= current_user.first_name.capitalize %>'s Requests</h2>
-  <hr>
-      <% @user_matches.each do |match| %>
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <h2><%= current_user.first_name.capitalize %>'s Profile</h2>
+      <br>
 
-        <!-- Works for users, not offers -->
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-justified" role="tablist">
+          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+          <li role="presentation"><a href="#incoming" aria-controls="incoming" role="tab" data-toggle="tab">Incoming Requests</a></li>
+          <li role="presentation"><a href="#outgoing" aria-controls="outgoing" role="tab" data-toggle="tab">Outgoing Requests</a></li>
 
-        <p><%= match.offer.title %> | Wants to be friends with: <%= match.offer.owner.first_name %></p>
+        </ul>
 
-        <p>Start Date: <%= match.start_date %></p>
-        <p>End Date: <%= match.end_date %></p>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="home">
 
-        <hr>
+          <p>(Edit )</p>
+          <p>( delete) </p>
 
-      <% end %>
-      <% @offer_matches.each do |m| %>
-        <p>Requested by: <%= m.user.first_name %> | <%= m.user.age %> years old</p>
-        <p>Start Date: <%= m.start_date %></p>
-        <p>End Date: <%= m.end_date %></p>
-        <hr>
-      <% end %>
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="outgoing">
+            <br>
+            <% @user_matches.each do |match| %>
+            <div class="row">
+              <div class="col-xs-8 col-sm-6">
+                <!-- Works for users, not offers -->
+
+                <p>You requested to be RentFriends with <strong><%= match.offer.owner.first_name %></strong></p>
+                <p><%= match.offer.title %></p>
+                <p><strong>Waiting for confirmation</strong></p>
+
+                <p>Start Date: <%= match.start_date %></p>
+                <p>End Date: <%= match.end_date %></p>
+              </div>
+              <div class="col-xs-8 col-sm-6">
+                <div class="crop_pic">
+                  <%= cl_image_tag offer_photo_path(match.offer), class: "box-images" %>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <% end %>
+
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="incoming">
+            <br>
+            <% @offer_matches.each do |m| %>
+              <div class="row">
+                <div class="col-xs-8 col-sm-6">
+                  <p><strong><%= m.user.first_name %></strong> requested to be RentFriends with you</p>
+                  <p>Start Date: <%= m.start_date %></p>
+                  <p>End Date: <%= m.end_date %></p>
+                  <p>See <strong><%= m.user.first_name %>'s</strong> <button type="submit" class="btn btn-default btn-small">Profile</button></p>
+                  <p><button type="submit" class="btn btn-default btn-small">Accept</button><button type="submit" class="btn btn-default btn-small">Reject</button></p>
+                </div>
+                <div class="col-xs-8 col-sm-6">
+                  <div class="crop_pic">
+                    pic of requesting user
+                  </div>
+                </div>
+                <hr>
+              </div>
+            <% end %>
+          </div>
+        </div>
     </div>
   </div>
 </div>

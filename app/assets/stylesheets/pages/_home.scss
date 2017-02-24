@@ -45,3 +45,13 @@ body {
   margin: 0 0 2px;
 }
 
+.crop_pic {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  text-align: right;
+}
+
+a, a:visited, a:hover, a:active {
+  color: black;
+}
