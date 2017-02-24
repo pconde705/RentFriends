@@ -22,9 +22,8 @@ class OffersController < ApplicationController
       @current_user_renting = all_renters.any? { |r| r.id == current_user.id }
     end
 
-    @offers = Offer.where.not(latitude: nil, longitude: nil)
     @match = Match.new
-    @hash = Gmaps4rails.build_markers(@offers) do |flat, marker|
+    @hash = Gmaps4rails.build_markers(@offer) do |flat, marker|
       marker.lat flat.latitude
       marker.lng flat.longitude
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
