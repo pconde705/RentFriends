@@ -10,10 +10,7 @@
           </div>
         <% end %>
         <br>
-          <% if current_user == offer.owner %>
-            <%= link_to "Edit", edit_offer_path(offer) %>
-            <%= link_to "Delete", offer_path(offer), method: :delete %>
-          <% end %>
+
           <p class="offer-details">
            <strong><%="#{offer.city}" %></strong>
           </p>

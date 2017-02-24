@@ -16,11 +16,14 @@
       <h3 class="blacky"><%= @offer.title.capitalize %></h3>
       <p><%= @offer.description %></p>
       <br>
+       <p><%= @offer.rules %></p>
+      <br>
       <br>
     </div>
     <div class="col-xs-6 col-md-4">
       <div class="align-right">
         <h2><%= @offer.price %> DKK day </h2>
+        <hr>
         <% if !@current_user_renting %>
           <%= render 'shared/match_form' %>
         <% else %>
