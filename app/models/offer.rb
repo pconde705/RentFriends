@@ -7,6 +7,7 @@ class Offer < ApplicationRecord
   after_validation :geocode, if: :city_changed?
 
   validates :city, presence: true, allow_blank: false
+  validates :rules, presence: true, allow_blank: false
   validates :description, presence: true, allow_blank: false
   validates :price, inclusion: { in: 0..10000, message: "No more than 10000" }, presence: true, allow_blank: false
   validates :title, length: {minimum: 3, maximum: 50 }, presence: true, allow_blank: false
