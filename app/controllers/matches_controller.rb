@@ -22,6 +22,13 @@ class MatchesController < ApplicationController
     redirect_to offer_path(@match.offer)
   end
 
+  def accept
+    @match = Match.find(params[:id])
+    @match.status = "accepted"
+    @match.save
+    redirect_to dashboard_path
+  end
+
   private
 
   def match_params
