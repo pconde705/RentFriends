@@ -2,9 +2,8 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
-.headline_home {
+.headline_home h1, h2 {
   font-family: 'Arima Madurai', cursive;
-  text-align: center;
 }
 
 .searchform-home {
@@ -23,6 +22,10 @@
 .home-container {
   margin-top: 110px;
   margin-bottom: 15px;
+}
+
+#master-container {
+  min-height: 630px;
 }
 
 body {
@@ -55,6 +58,7 @@ body {
 a, a:visited, a:hover, a:active {
   color: black;
 }
+
 .crop_profile {
   padding-right: 15px;
 }
@@ -66,4 +70,12 @@ a, a:visited, a:hover, a:active {
 .btn_accept_reject {
   text-align: right;
   margin: 50px;
+
+}
+
+.congratulations {
+  color: green;
+}
+.waiting {
+  color: blue;
 }

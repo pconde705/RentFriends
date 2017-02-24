@@ -16,18 +16,19 @@
       <h3 class="blacky"><%= @offer.title.capitalize %></h3>
       <p><%= @offer.description %></p>
       <br>
+      <h3>My rules</h3>
        <p><%= @offer.rules %></p>
       <br>
       <br>
     </div>
-    <div class="col-xs-6 col-md-4">
+    <div class="col-xs-12 col-md-4">
       <div class="align-right">
         <h2><%= @offer.price %> DKK day </h2>
         <hr>
         <% if !@current_user_renting %>
           <%= render 'shared/match_form' %>
         <% else %>
-          <p> You requested to book <%= @offer.title %> from <%= @offer.matches.find_by(user: current_user.id).start_date %> to <%= @offer.matches.find_by(user: current_user.id).end_date %> </p>
+          <p> You requested to book <strong><%= @offer.owner.first_name %></strong> from <%= @offer.matches.find_by(user: current_user.id).start_date %> to <%= @offer.matches.find_by(user: current_user.id).end_date %> </p>
         <% end %>
       </div>
     </div>
