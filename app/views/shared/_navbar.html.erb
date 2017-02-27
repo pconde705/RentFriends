@@ -58,6 +58,7 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Dashboard", dashboard_path %></li>
         <li><%= link_to "See All Offers", offers_path %></li>
         <li><%= link_to "Be a Friend", new_offer_path %></li>
         <% if user_signed_in? %>
