@@ -61,48 +61,30 @@ A simple search function exists in the center of the home page that allows you t
 ## Dashboard
 
 <p align="center">
-  <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1515364979/Screen_Shot_2018-01-07_at_2.41.49_PM_fyoqw0.png" >
+  <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1515364982/Screen_Shot_2018-01-07_at_2.36.45_PM_tm16sy.png" >
 </p>
 
-Live statistics showcase the current date, how many ongoing projects currently exist, how many backers RentFriends has, and how many projects have been successfully funded.
-
-The stats page was the final thing added to the app that took the most time and effort. Not all aspects were challenging, but when it came to calculating the projects that had been funded, using the columns created in my table, required ruby methods performing calculations on the backend and a triple Full Outer Join written as a SQL query in Active Record.
+In your dashboard, you can see your outgoing friend requests. The current status, be it pending, rejected, or accepted will be determined based on the responses made to the "Friend" you requested. Likewise if someone has requested you as a "Friend" to rent, their information will be made available on the Incoming Requests tab, allowing you to reject or accept. The Home tab will display your history and if you have any ongoing rentals.
 
 ```ruby
-  def total_amount_raised
-    first_value = project_backers.where('cash_only != 0').sum(:cash_only)
-    second_value = reward_backers.sum(:amount)
-    first_value + second_value
-  end
+<% if m.status == "pending" %>
 
-  def total_number_of_backers
-    user_backers.uniq.count
-  end
+    <div class="col-xs-8 col-sm-6">
+      <p><strong><%= m.user.first_name %></strong> requested to be RentFriends with you</p>
+      <p><strong>Start Date:</strong> <%= m.start_date %></p>
+      <p><strong>End Date:</strong> <%= m.end_date %></p>
+      <br>
+    </div>
 
-  def self.all_projects
-    Project.all.count
-  end
-
-  def self.all_funded_projects
-    result = ActiveRecord::Base.connection.execute(<<-SQL)
-      SELECT
-        projects.id
-      FROM
-        projects
-      FULL OUTER JOIN project_backers AS reward_backers ON reward_backers.project_id = projects.id
-      FULL OUTER JOIN rewards ON reward_backers.reward_id = rewards.id
-      FULL OUTER JOIN project_backers AS cash_backers ON cash_backers.project_id = projects.id
-      GROUP BY
-        projects.id
-      HAVING
-        sum(cash_backers.cash_only + rewards.amount) > projects.goal
-    SQL
-    result.count
-  end
+    <div class="col-xs-8 col-sm-6">
+      <div class="btn_accept_reject">
+        <%= link_to match_accept_path(m) do %>
+      <p><button type="submit" class="btn btn-default btn-small">Accept</button>
+      <% end %>
+      <%= link_to offer_match_path(m.offer, m), method: :delete do %>
+      <button type="submit" class="btn btn-default btn-small">Reject</button></p>
+      <% end %>
+      </div>
+    </div>
+<% end %>
 ```
-
-In order to correctly calculate whether the total amount had exceeded the initial goal the user had stated for that project, required a table keeping track of three things.
-
-The data from the rewards table that kept track of the amounts each specific reward offered, the data from the project_backers table that kept track of any freely inputed cash amount to be donated, and the total_amount_raised (see method above) that calculates how much each specific project had already raised based on the two previous data inputs.
-
-The total_amount_raised was thus a necessary creation that overwrote the initial money_raised column that existed in the projects table.
