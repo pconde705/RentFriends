@@ -22,14 +22,12 @@
 
 ## Introduction
 
-In [RentFriends](https://airbnb-pconde705.herokuapp.com) users can sign up for an account, which allows them to create and back any project of their choice. To back a project they can either type in an amount of their choice or they can choose a fixed amount pledge that comes with a reward that the project creator has specified.
+In [RentFriends](https://airbnb-pconde705.herokuapp.com) users can sign up for an account, which allows them to rent a friend for a specified amount of time, if both parties agree. You can search based on price and location to match what you are looking for. You can also become a "Friend" by entering information about where you are located and what you can offer, which creates a profile page for others to see and interact with.
 
 Features:
 
-* View project feed
-* Navigate feed based on the project category
-* View a project individually
-* Monitor the progress of each project as it attempts to reach its funding goals
+* View all available "Friends" for hire
+* View a "Friend" individually
 * Create projects
 * Create rewards for those projects
 * Back a project through a reward or amount of your choice
