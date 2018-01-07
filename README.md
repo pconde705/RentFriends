@@ -6,23 +6,21 @@
 </p>
 
 <p align="center">
-  Welcome to RentFriends, an AirBnb inspired web application written primarily with jQuery for the frontend and Ruby on Rails for the backend.
+  Welcome to RentFriends, an AirBnb inspired web application written primarily with jQuery for the frontend and Ruby on Rails for the backend. Styling with CSS and BootStrap.
 </p>
 
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Project Creation](#project-creation)
-- [Project Rewards](#project-rewards)
-- [Project Show](#project-show)
+- [Become a Friend](#become-a-friend)
+- ["Friend" Profile](#friend-profile)
 - [Search](#search)
-- [Categories](#categories)
-- [Stats](#stats)
+- [Dashboard](#dashboard)
 
 
 ## Introduction
 
-In [RentFriends](https://airbnb-pconde705.herokuapp.com) users can sign up for an account, which allows them to rent a friend for a specified amount of time, if both parties agree. You can search based on price and location to match what you are looking for. You can also become a "Friend" by entering information about where you are located and what you can offer, which creates a profile page for others to see and interact with.
+In [RentFriends](https://airbnb-pconde705.herokuapp.com) users can sign up for an account, which allows them to rent a "Friend" for a specified amount of time if the "Friend" agrees. You can search "Friends" based on price and location to match what you are looking for. You can also become a "Friend" by entering information about where you are located and what you can offer, which creates a profile page for others to see and interact with.
 
 Features:
 
@@ -31,6 +29,7 @@ Features:
 * Become a "Friend" with your own stipulations
 * Request a "Friend" for a specific period of time
 * Reject or Accept incoming requests to rent you as a "Friend"
+* Search for a "Friend" by city and max price
 
 ## Become a Friend
 
@@ -49,28 +48,20 @@ To become a friend simply click on the button in the navbar that will always be 
   <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1515364296/Screen_Shot_2018-01-07_at_2.31.07_PM_lseeds.png" >
 </p>
 
-In the profile page of a "Friend" you can read the description of the activities the "Friend" is suggesting, as well as the cost they have specified for your activities together. Here you will also discover a google maps rendering of where you would be hanging out together. 
+In the profile page of a "Friend" you can read the description of the activities the "Friend" is suggesting, as well as the cost they have specified for your activities together. Here you will also discover a google maps rendering of where you would be hanging out together.
 
 ## Search
 
 <p align="center">
-  <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1512168345/Screen_Shot_2017-12-01_at_2.45.15_PM_nxaj06.png" >
+  <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1515364979/Screen_Shot_2018-01-07_at_2.41.49_PM_fyoqw0.png" >
 </p>
 
-A simple search feature on the navbar provides ease of access and simplicity in use. It queries the backend searching for project titles, limiting the responses to five. This way it avoids clutter and encourages the user to be specific. Since search exists on the navbar it can be used anywhere in the app.
+A simple search function exists in the center of the home page that allows you to narrow your search. Here you can specify your city of choice, and your current budget, allowing RentFriends to filter options better suited for you.
 
-## Categories
-
-<p align="center">
-  <img src="http://res.cloudinary.com/lopopoa2/image/upload/v1512168440/Screen_Shot_2017-12-01_at_2.46.59_PM_zrjixj.png" >
-</p>
-
-The category bar provides immediate filtering functionality that sends a request to the server and fetches from the database all the projects that matches the category being clicked on.
-
-## Stats
+## Dashboard
 
 <p align="center">
-  <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1512168500/Screen_Shot_2017-12-01_at_2.47.50_PM_cc1qr5.png" >
+  <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1515364979/Screen_Shot_2018-01-07_at_2.41.49_PM_fyoqw0.png" >
 </p>
 
 Live statistics showcase the current date, how many ongoing projects currently exist, how many backers RentFriends has, and how many projects have been successfully funded.
