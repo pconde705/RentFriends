@@ -38,20 +38,15 @@ Features:
   <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1515313512/Screen_Shot_2018-01-07_at_12.24.47_AM_znymcl.png">
 </p>
 
-To create a project simply click on the button in the navbar that will always be available allowing for ease of access. Upon completion of each input field the form will redirect you to your project page that you just created. Everything you need to start a project is on that one page further emphasizing ease of usability. The description input field can be made bigger by a simple click-and-drag action.
-
-## Project Rewards
-
-<p align="center">
-  <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1512168276/Screen_Shot_2017-12-01_at_2.44.04_PM_ijossg.png">
-</p>
-
-Rewards are not necessary to create a project. They are meant to gift a community of passionate followers that would love to see your idea come to fruition. The design was similar to how you create a project so as to not confuse users. A slightly different color scheme and background is used for minimal differentiation between it and the project form.
+To become a friend simply click on the button in the navbar that will always be available allowing for ease of access. Upon completion of each input field the form will redirect you to your profile page that you just created. Everything you need to become a "Friend" is on that one page further emphasizing ease of usability. The address bar will automatically provide you with a google maps rendering of where you are located.
 
 ## Project Show
 
 <p align="center">
-  <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1512166342/Screen_Shot_2017-12-01_at_2.11.32_PM_mzhjnm.png" >
+  <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1515314540/Screen_Shot_2018-01-07_at_12.41.08_AM_ijmvob.png" >
+</p>
+<p align="center">
+  <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1515314533/Screen_Shot_2018-01-07_at_12.41.32_AM_vaxbgz.png" >
 </p>
 
 In the display page you can read a detailed description the project creator has written about the project, and what kind of rewards he/she has provided for that specific pledge amount. Here you will also discover live stats that chronicles the number of backers this project has, the number of backers each reward has, and how close the project is to reach its goal.
