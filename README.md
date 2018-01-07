@@ -40,16 +40,16 @@ Features:
 
 To become a friend simply click on the button in the navbar that will always be available allowing for ease of access. Upon completion of each input field the form will redirect you to your profile page that you just created. Everything you need to become a "Friend" is on that one page further emphasizing ease of usability. The address bar will automatically provide you with a google maps rendering of where you are located.
 
-## Project Show
+## "Friend" Profile
 
 <p align="center">
-  <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1515314540/Screen_Shot_2018-01-07_at_12.41.08_AM_ijmvob.png" >
+  <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1515363954/Screen_Shot_2018-01-07_at_2.25.26_PM_upothp.png" >
 </p>
 <p align="center">
-  <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1515314533/Screen_Shot_2018-01-07_at_12.41.32_AM_vaxbgz.png" >
+  <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1515364296/Screen_Shot_2018-01-07_at_2.31.07_PM_lseeds.png" >
 </p>
 
-In the display page you can read a detailed description the project creator has written about the project, and what kind of rewards he/she has provided for that specific pledge amount. Here you will also discover live stats that chronicles the number of backers this project has, the number of backers each reward has, and how close the project is to reach its goal.
+In the profile page of a "Friend" you can read the description of the activities the "Friend" is suggesting, as well as the cost they have specified for your activities together. Here you will also discover a google maps rendering of where you would be hanging out together. 
 
 ## Search
 
