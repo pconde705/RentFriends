@@ -42,7 +42,7 @@ To become a friend simply click on the button in the navbar that will always be 
 ## "Friend" Profile
 
 <p align="center">
-  <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1515311948/Screen_Shot_2018-01-06_at_11.57.42_PM_s01a94.png" >
+  <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1515366045/Screen_Shot_2018-01-07_at_3.00.12_PM_topn3g.png" >
 </p>
 <p align="center">
   <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1515364296/Screen_Shot_2018-01-07_at_2.31.07_PM_lseeds.png" >
