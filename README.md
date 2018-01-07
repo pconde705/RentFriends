@@ -28,16 +28,14 @@ Features:
 
 * View all available "Friends" for hire
 * View a "Friend" individually
-* Create projects
-* Create rewards for those projects
-* Back a project through a reward or amount of your choice
-* See live stats of projects that become funded
-* Search for any existing project
+* Become a "Friend" with your own stipulations
+* Request a "Friend" for a specific period of time
+* Reject or Accept incoming requests to rent you as a "Friend"
 
-## Project Creation
+## Become a Friend
 
 <p align="center">
-  <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1512164907/Screen_Shot_2017-12-01_at_1.47.43_PM_wcccae.png">
+  <img src="https://res.cloudinary.com/lopopoa2/image/upload/v1515313512/Screen_Shot_2018-01-07_at_12.24.47_AM_znymcl.png">
 </p>
 
 To create a project simply click on the button in the navbar that will always be available allowing for ease of access. Upon completion of each input field the form will redirect you to your project page that you just created. Everything you need to start a project is on that one page further emphasizing ease of usability. The description input field can be made bigger by a simple click-and-drag action.
